@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1">
+    {% block Meta %}
+    {% endblock %}
+    <link rel="icon" href="{% static 'images/syrians_icon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free-5.13.0/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-classes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-responsive.css' %}">
+    <title> {% block Title %} {% endblock %} </title>
+  </head>
+  <body>
+    <div id="BasePage">
+    {% block Fixed_Background %}
+      <img class="Background-Image" src="{% static 'images/sunset.jpg' %}">
+    {% endblock %}
+      <div id="Header">
+        <div class="Logo-Menu">
+          <a href="#" id="Menu"><i class="fas fa-bars"></i></a>
+          <a href="{% url 'Home_Page' %}" id="Logo"><img src="{% static 'images/Syrians_Logo_3.png' %}" alt=""></a>
+        </div>
+        <div class="NavBar">
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'MyProfile' request.user %}">Profile</a>
+        {% else %}
+          <a href="{% url 'Register_Page' %}">Register</a>
+        {% endif %}
+          <a href="{% url 'News' %}">News</a>
+          <a href="{% url 'Explore' %}">Explore</a>
+          <form class="Search-Engine" method="post" action="{% url 'Search' %}">
+            {% csrf_token %}
+            <label for="SearchEngine"><i class="fas fa-search Search-Icon"></i></label>
+            <input class="Search-Input" name="SearchEngine" type="search">
+            <input class="Search-btn" type="submit" value="">
+          </form>
+        </div>
+      </div>
+    {% block Body %}
+      <div id="Body">
+        <div id="LeftSide">
+        {% block LeftSide %}
+          <a href="{% url 'Notifications' request.user.username %}">Notifications</a>
+          <a href="{% url 'Messages' request.user.username %}">Messages</a>
+          <a href="#">Top Stars</a>
+          <a href="#">Top Rates</a>
+          <a href="#">Settings</a>
+        {% endblock %}
+        </div>
+        <div id="MainContent">
+        {% block Content %}
+        {% endblock %}
+        </div>
+      </div>
+    {% endblock %}
+    </div>
+    <!-- JavaScript -->
+    <script src="{% static 'js/jquery-3.5.1.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/app.js' %}"  type="text/javascript"></script>
+  {% block Scripts %}
+  {% endblock %}
+  </body>
+</html>

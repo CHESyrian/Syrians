@@ -1,0 +1,19 @@
+{% extends 'explore/search_results.html' %}
+
+{% block Title %}
+  Syrians | Search - Users
+{% endblock %}
+
+{% block Search_Result_Filter %}
+    {% for user in users_filter %}
+      <div class="Result-User">
+        <div class="ResultUser-Image">
+          <img src="/../../media/{{ user.Profile_Image }}">
+        </div>
+        <div class="ResultUser-Name">
+          <a href="">{{ user.First_Name }} {{ user.Last_Name }}</a>
+          <p>{{ user.Bio }}</p>
+        </div>
+      </div>
+    {% endfor %}
+{% endblock %}

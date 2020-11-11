@@ -1,0 +1,16 @@
+{% extends 'my_account/account_settings.html' %}
+
+{% block Title %}
+  Syrians | Settings - Edit Profile
+{% endblock %}
+
+{% block Settings_Details %}
+  <div class="EditProfile-Details">
+    <ol>
+      <li><a href="{% url 'Change_Profile_Pictures' request.user.username %}"> Change Cover Picture </a></li>
+      <li><a href="{% url 'Change_Profile_Pictures' request.user.username %}"> Change Profile Picture </a></li>
+      <li><a href="{% url 'Edit_ProfInfos' request.user.username %}"> Edit Profile Informations </a></li>
+      <li><a href="{% url 'Edit_Social_Media_Account' request.user.username %}"> Edit Social Media Account </a></li>
+    </ol>
+  </div>
+{% endblock %}

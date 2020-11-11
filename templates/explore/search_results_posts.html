@@ -1,0 +1,19 @@
+{% extends 'explore/search_results.html' %}
+
+{% block Title %}
+  Syrians | Search - Posts
+{% endblock %}
+
+{% block Search_Result_Filter %}
+    {% for post in posts_filter %}
+      <div class="Result-Posts">
+        <div class="ResultPost-User">
+          <a>{{ post.username.first_name }} {{ post.username.last_name }} <span> @{{ post.username.username }} </span> </a>
+          <span>{{ post.Post_Date }}</span>
+        </div>
+        <div class="ResultPost-Text">
+          <pre>{{ post.Post }}</pre>
+        </div>
+      </div>
+    {% endfor %}
+{% endblock %}

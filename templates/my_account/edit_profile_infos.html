@@ -1,0 +1,62 @@
+{% extends 'my_account/account_settings.html' %}
+
+{% block Title %}
+  Syrians | Settings - Edit Profile Informations
+{% endblock %}
+
+{% block Settings_Details %}
+  <div class="Form-Container">
+    <form id="EditProfInfos-Form" action="{% url 'Do_EditProfInfo' request.user.username %}" method="post">
+      {% csrf_token %}
+      <div class="Fields">
+        <div class="Labels">
+          <label class="Label-1" for="Address_input">Address</label>
+          <label class="Label-1" for="Job_input">Job</label>
+          <label class="Label-1" for="NumberPhone_input">Number Phone</label>
+        </div>
+        <div class="Inputs">
+          <input class="Text-1" type="text" name="Address_input" value="{{ User.Address }}">
+          <input class="Text-1" type="text" name="Job_input" value="{{ User.Job }}">
+          <input class="Text-1" type="text" name="NumberPhone_input" value="{{ User.Number_Phone }}">
+        </div>
+      </div>
+      <div class="Buttons">
+        <input class="EditProfInfos-btn Save-Button" type="button" name="EditProfInfos_btn" value="Save">
+      </div>
+    </form>
+    <form id="ChangeName-Form" action="{% url 'Do_ChangeName' request.user.username %}" method="post">
+      {% csrf_token %}
+      {% if User.Editable %}
+        <label class="Label-1 Note ChangeName-note">*Note: You can changing your name just One Time.</label>
+        <div class="Fields">
+          <div class="Labels">
+            <label class="Label-1" for="FirstName_input">First Name</label>
+            <label class="Label-1" for="LastName_input">Last Name</label>
+          </div>
+          <div class="Inputs">
+            <input class="Text-1" type="text" name="FirstName_input" value="{{ User.First_Name }}">
+            <input class="Text-1" type="text" name="LastName_input" value="{{ User.Last_Name }}">
+          </div>
+          <div class="Buttons">
+            <input class="ChangeName-btn Save-Button" type="button" name="ChangeName_btn" value="Save">
+          </div>
+        </div>
+      {% else %}
+        <label class="Label-1 Note ChangeName-note">*Sorry, but you were changed your name.</label>
+        <div class="Fields">
+          <div class="Labels">
+            <label class="Label-1" for="FirstName_input">First Name</label>
+            <label class="Label-1" for="LastName_input">Last Name</label>
+          </div>
+          <div class="Inputs">
+            <input class="Text-1" type="text" name="FirstName_input" value="{{ User.First_Name }}" disabled="disabled">
+            <input class="Text-1" type="text" name="LastName_input" value="{{ User.Last_Name }}"disabled="disabled">
+          </div>
+          <div class="Buttons">
+            <input class="ChangeName-btn Save-Button" type="hidden" name="ChangeName_btn" value="Save">
+          </div>
+        </div>
+      {% endif %}
+    </form>
+  </div>
+{% endblock %}

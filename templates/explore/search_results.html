@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1">
+    {% block Meta %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free-5.13.0/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive_style.css' %}">
+    <script src="{% static 'js/app.js' %}"></script>
+    <title>
+    {% block Title %}
+      Search Results
+    {% endblock %}
+    </title>
+  </head>
+  <body>
+    <div>
+    <div class="Search-Header">
+      <div class="Search-Filters">
+        <a href="{% url 'Home_Page' %}"><i class="fas fa-arrow-circle-left"> Back to Home </i></a>
+        <a href="{% url 'Search_Users' keyword %}"> Users </a>
+        <a href="{% url 'Search_Posts' keyword %}"> Posts </a>
+        <a href="{% url 'Search_Images' keyword %}"> Images </a>
+      </div>
+      <form class="Search-Engine" method="post" action="{% url 'Search' %}">
+        {% csrf_token %}
+        <label for="SearchEngine"><i class="fas fa-search Search-Icon"></i></label>
+        <input class="Search-Input" name="SearchEngine" type="search" value="{{ keyword }}">
+        <input class="Search-btn" type="submit" value="">
+      </form>
+    </div>
+    <div class="Search_Result">
+      {% block Search_Result_Filter %}
+      {% endblock %}
+    </div>
+    </div>
+  </body>
+</html>

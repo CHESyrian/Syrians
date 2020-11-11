@@ -1,0 +1,28 @@
+{% extends 'explore/news.html' %}
+
+{% block Title %}
+  Syrians | Explore - Posts
+{% endblock %}
+
+{% block News_Section %}
+    <div class="NewsPosts-Section">
+      {% for Post in Posts %}
+      <div class="Post">
+        <div class="Post-Header" style="background-color:{{Post.BG_Color}};color:{{Post.Font_Color}};">
+          <div class="Post-UserDate">
+            <a href="{% url 'Profile' Post.username.username %}" style="color:{{Post.Font_Color}};">{{ Post.username.username }}</a>
+          </div>
+          <span>{{ Post.Post_Date }}</span>
+        </div>
+        <div class="Post-Body" style="background-color:{{Post.BG_Color}}; font-size:{{Post.Font_Size}}px; color:{{Post.Font_Color}};">
+          <pre>{{ Post.Post }}</pre>
+        </div>
+        <div class="Post-Footer GLS-Bar" style="border: 2px solid {{Post.BG_Color}}">
+          <i class="fas fa-thumbs-up GoodPost-btn" onclick="makeGood(this, '{{ Post.id }}')"></i>
+          <i class="fas fa-heart AmazingPost-btn" onclick="makeAmazing(this, '{{ Post.id }}')"></i>
+          <i class="fas fa-star StarPost-btn" onclick="getStar(this)"></i>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endblock %}

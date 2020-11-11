@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Title %}
+  Syrians | {{ request.user.username }} - Edit Post
+{% endblock %}
+
+{% block Content %}
+  <div class="EditPost">
+    <div class="PostOptions">
+      <div class="Post-Background">
+        <label for="PostBackground-lbl">Background Color : </label>
+        <select class="PostBackground-select" name="PostBackground" form="EditPost-Form">
+          <option value="{{ Old_Post.BG_Color }}">default</option>
+          <option value="black">Black</option>
+          <option value="red">Red</option>
+          <option value="blue">Blue</option>
+          <option value="cyan">Cyan</option>
+          <option value="yellow">Yellow</option>
+          <option value="lime">Lime</option>
+        </select>
+      </div>
+      <div class="PostFontColor">
+        <label for="PostFontColor-lbl">Font Color : </label>
+        <select class="PostFontColor-select" name="PostFontColor" form="EditPost-Form">
+          <option value="{{ Old_Post.Font_Color }}">default</option>
+          <option value="gold">Gold</option>
+          <option value="black">Black</option>
+          <option value="red">Red</option>
+          <option value="pink">Pink</option>
+          <option value="green">Green</option>
+          <option value="silver">Silver</option>
+          <option value="lime">Lime</option>
+        </select>
+      </div>
+      <div class="PostFontSize">
+        <label for="PostFontSize-lbl">Fonr Size : </label>
+        <select class="PostFontSize-select" name="PostFontSize" form="EditPost-Form">
+          <option value="{{ Old_Post.Font_Size }}">default</option>
+          <option value="24">24</option>
+          <option value="28">28</option>
+          <option value="32">32</option>
+          <option value="36">36</option>
+          <option value="42">42</option>
+          <option value="46">46</option>
+          <option value="50">50</option>
+          <option value="54">54</option>
+          <option value="64">64</option>
+          <option value="72">72</option>
+        </select>
+      </div>
+    </div>
+    <form id="EditPost-Form" method="post" action="{% url 'Do_EditPost' request.user Old_Post.id %}">
+      {% csrf_token %}
+      <textarea class="EditPost-txt" name="EditPost_txt" rows="14" cols="100">{{ Old_Post.Post }}</textarea>
+      <input class="EditPost-btn" type="submit" value="Save">
+    </form>
+  </div>
+{% endblock %}

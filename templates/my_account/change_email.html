@@ -1,0 +1,30 @@
+{% extends 'my_account/account_settings.html' %}
+
+
+{% block Title %}
+  Syrians | Settings - Change Email
+{% endblock %}
+
+
+{% block Settings_Details %}
+  <div class="Form-Container">
+    <form id="ChangeEmail-Form">
+      {% csrf_token %}
+      <div class="Fields">
+        <div class="Labels">
+          <label class="Label-1" for="Current_Email">Current Email</label>
+          <label class="Label-1" for="New_Email">New Email</label>
+          <label class="Label-1" for="Check_Password">Password</label>
+        </div>
+        <div class="Inputs">
+          <input class="Text-1" type="text" name="Current_Email" value="">
+          <input class="Text-1" type="text" name="New_Email" value="">
+          <input class="Text-1" type="password" name="Check_Password" value="">
+        </div>
+      </div>
+      <div class="Buttons">
+        <input class="ChangeEmail-btn Save-Button" type="button" value="Save">
+      </div>
+    </form>
+  </div>
+{% endblock %}

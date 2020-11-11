@@ -1,0 +1,30 @@
+{% extends 'profiles/profile.html' %}
+{% load static %}
+
+{% block Title %}
+  Syrians | {{  }} - Gallery
+{% endblock %}
+
+{% block Section_Content %}
+    <div class="Gallery">
+      {% for ndx, image in Images_Gallery %}
+        <div class="Image-in-Gallery">
+          <img name="IMG-{{image.id}}-{{image.Good_Num}}-{{image.Amazing_Num}}-{{image.Stars_Num}}"
+               onclick="currentIndex({{ndx}})" src="../../media/{{ image.Image }}">
+        </div>
+      {% endfor %}
+    </div>
+    <div class="Gallery-Modal">
+      <span class='Close Close-GalleryModal'>&times;</span>
+      <div class="ImageReactions-Bar">
+        <i class="fas fa-thumbs-up GoodImage-btn"><span class="GoodNum"></span></i>
+        <i class="fas fa-heart AmazingImage-btn"><span class="AmazingNum"></span></i>
+        <i class="fas fa-star StarImage-btn"><span class="StarsNum"></span></i>
+      </div>
+      <div class="Control-Images">
+        <span class="Next" title="Next" onclick="nextImage()">&#10094;</span>
+        <span class="Prev" title="Prev" onclick="prevImage()">&#10095;</span>
+        <a href="" target="_blank" class="FullSizeImage-Link"><img class="Main-Image" src=""></a>
+      </div>
+    </div>
+{% endblock %}

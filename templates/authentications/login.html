@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Title %}
+  Syrians | Login
+{% endblock %}
+
+{% block Body %}
+  <div id="Login-Modal">
+    <div id="Login-Card">
+      <a href="{% url 'Home_Page' %}" class="Close">&times;</a>
+      <img src="{% static 'images/Syrians_2.png' %}" alt="">
+      <form class="Login-Form" method="post" action="{% url 'Logging' %}">
+        {% csrf_token %}
+        <div class="User-Field">
+          <label for="User"><i class="fas fa-user"></i></label>
+          <input type="text" name="User" placeholder="Username">
+        </div>
+        <div class="Pass-Field">
+          <label for="Pass"><i class="fas fa-lock"></i></label>
+          <input type="password" name="Pass" placeholder="Password">
+        </div>
+        <input class="Login-Btn" type="submit" value="Login">
+      </form>
+      <p>You haven't an account?<br/> <a href="{% url 'Register_Page' %}">Register </a> Now.</p>
+    </div>
+  </div>
+{% endblock %}

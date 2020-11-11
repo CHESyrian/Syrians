@@ -1,0 +1,30 @@
+{% extends 'my_account/account_settings.html' %}
+
+{% block Title %}
+  Syrians | Settings - Change Profiles Pictures
+{% endblock %}
+
+{% block Settings_Details %}
+  <div class="ChangeCover-Part">
+    <img src="/../../media/{{ Cover_Image }}">
+    <form id="ChangeCover-Form" method="post" action="{% url 'Changing_Cover' request.user.username %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="Buttons">
+        <input class="Hidden" type="file" name="ChangeCover_input" value="Select Image">
+        <label class="SelectFile-Fake Label-1">Select Image</label>
+        <input id="ChangeCover-btn" class="Save-Button" type="submit" name="ChangeCover_btn" value="Save">
+      </div>
+    </form>
+  </div>
+  <div class="ChangeProfPic-Part">
+    <img src="/../../media/{{ Profile_Image }}">
+    <form id="ChangeProfPic-Form" method="post" action="{% url 'Changing_ProfPic' request.user.username %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="Buttons">
+        <input class="Hidden" type="file" name="ChangeProfPic_input" value="Select Image">
+        <label class="SelectFile-Fake Label-1">Select Image</label>
+        <input id="ChangeProfPic-btn"  class="Save-Button" type="submit" name="ChangeProfPic_btn" value="Save">
+      </div>
+    </form>
+  </div>
+{% endblock %}

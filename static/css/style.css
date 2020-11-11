@@ -1,0 +1,1178 @@
+/* --------------------------- Animations ---------------------------- */
+@keyframes ScaleReaction {
+  100% {
+    -webkit-transform: scale(20);
+    -moz-transform: scale(20);
+    -ms-transform: scale(20);
+    -o-transform: scale(20);
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+/* ------------------------------------------------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: serif;
+  color: #fff;
+}
+.Background-Image {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+/* --------------------------- Header ---------------------------- */
+#BasePage {
+  display: flex;
+  flex-flow: column nowrap;
+}
+#Header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 2;
+}
+.Logo-Menu {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border: none;
+  padding: 5px 0;
+  width: 200px;
+  background-color: rgba(220, 220, 220, 0.5);
+  border-radius: 12px;
+}
+.Logo-Menu:hover {
+  background-color: rgba(250, 250, 250, 0.8);
+}
+#Logo {
+  margin-left: 6px;
+}
+#Menu {
+  display: none;
+  color: white;
+  font-size: 32px;
+  margin-left: -4px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.Logo-Menu:hover > #Menu {
+  color: #000;
+}
+.NavBar {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.NavBar a {
+  align-self:center;
+  text-decoration: none;
+  text-align: center;
+  width: 90px;
+  border: none;
+  padding: 15px 0;
+  margin: 0 4px 0 4px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  font-size: 20px;
+}
+.NavBar a:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #000;
+}
+.Search-Engine {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  padding: 15px 4px;
+  margin: 0 4px 0 4px;
+  width: 280px;
+  direction: rtl;
+}
+.Search-Input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  width: 80%;
+}
+.Search-Icon {
+  color: white;
+  font-size: 20px;
+  width: 18%;
+  text-align: center;
+}
+.Search-btn {
+  position: fixed;
+  right: 10px;
+  top: 15px;
+  height: 40px;
+  width: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+/* -------------------------- Body -------------------------- */
+#Body {
+
+}
+/* -------------------------- LeftSide -------------------------- */
+#LeftSide {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 15%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 2;
+}
+#LeftSide a {
+  text-align: left;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #aaa;
+  text-align: left;
+  padding-left: 5px;
+}
+#LeftSide a:hover {
+  color: #fff;
+}
+/* -------------------------- MainContent -------------------------- */
+#MainContent {
+  display: flex;
+  flex-flow: row wrap;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 85%;
+  z-index: 1;
+}
+/* ---------------------------- Register --------------------------- */
+.Register-Fields {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  list-style-type: none;
+  width: 300px;
+}
+.Register-MsgError {
+  color: red;
+  font-size: 16px;
+}
+.Register-Fields li {
+  align-self:center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-flow: row nowrap;
+  width: 100%;
+  margin: 5px auto;
+  height: 30px;
+}
+.Register-Fields li label {
+  flex: 35%;
+  font-size: 18px;
+}
+.Register-Fields li input {
+  flex: 65%;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 0 4px;
+}
+.Register-Fields select {
+  flex: 65%;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.Register-Fields .Reg_Button {
+  width: 100%;
+  height: 35px;
+  margin-top: 10px;
+  background-color: rgb(255, 0, 0);
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+/* ---------------------------- Login --------------------------- */
+#Login-Modal {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.88);
+  overflow: auto;
+  z-index: 2;
+}
+#Login-Card {
+  align-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 340px;
+  padding: 5px 20px 20px 20px;
+  border-radius: 10px;
+  background-color: rgba(250, 250, 250, 0.1);
+}
+.Close {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  right: 5px;
+  direction: rtl;
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+#Login-Card img {
+  align-self: center;
+  max-width: 100%;
+  margin: 50px auto;
+  height: auto;
+}
+.Login-Form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.User-Field,
+.Pass-Field {
+  border-bottom: .5px solid #ddd;
+  margin-bottom: 15px;
+  padding: 2px;
+}
+.Login-Form input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 24px;
+}
+.Login-Form i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+.Login-Form .Login-Btn {
+  color: lime;
+  height: 50px;
+  transition: 1s ease;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.Login-Form .Login-Btn:hover {
+  background-color: lime;
+  color: #000;
+}
+#Login-Card p {
+  text-align: center;
+  font-size: 16px;
+}
+#Login-Card p a {
+  text-decoration: none;
+  color: lime;
+}
+/* ---------------------------- My Profile --------------------------- */
+.MyProfile,
+.Profile {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+.Profile-Header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.64);
+}
+.Profile-Cover {
+  align-self: center;
+  height: 360px;
+  width: 100%;
+}
+.Profile-Cover img{
+  width: 100%;
+  height: 100%;
+}
+.EditCover-Link {
+  display: none;
+}
+.EditCover-Icon {
+  font-size: 80px;
+  color: rgba(255,255, 255, .7);
+  padding: 25px;
+  text-align: center;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid rgba(255,255, 255, .7);
+  border-radius: 50%;
+}
+.Profile-Picture {
+  align-self: center;
+  width: 200px;
+  height: 200px;
+  border: none;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: -100px;
+  background-color: #ccc;
+}
+.Profile-Picture img {
+  width: 200px;
+  height: 200px;
+}
+.EditProfPic-Link {
+  display: none;
+}
+.EditProfPic-Icon {
+  font-size: 40px;
+  color: rgba(255,255, 255, .7);
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  top: 330px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid rgba(255,255, 255, .7);
+  border-radius: 50%;
+}
+.Profile-Cover:hover > .EditCover-Link {
+  display: block;
+}
+.Profile-Picture:hover > .EditProfPic-Link {
+  display: block;
+}
+.Profile-Infos {
+  align-self: center;
+  text-align: center;
+  margin-top: 5px;
+}
+.Profile-Infos h1 {
+  font-size: 32px;
+  letter-spacing: 1.2px;
+  color: #fff;
+  text-decoration: none;
+}
+.Profile-Infos h3 {
+  font-size: 24px;
+  color: rgba(170, 170, 170, .9);
+  letter-spacing: 1px;
+  margin-top: -15px;
+}
+.Bio,
+.MyBio {
+  font-size: 20px;
+  min-width: 60px;
+  min-height: 30px;
+}
+.User-Links {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  padding: 2px 6px;
+  border-radius: 30px;
+  margin-bottom: 12px;
+  min-width: 50px;
+  min-height: 60px;
+  transition: .6s all;
+}
+.User-Links:hover {
+  background-color: #d2d2d2;
+}
+.AddLink-icon {
+  align-self: center;
+  display: none;
+  font-size: 45px;
+  background-color: rgba(110, 110, 110, .4);
+  color: #222;
+  text-align: center;
+  align-self: center;
+  width: 50px;
+  border: 2px solid rgb(20, 20, 20);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: .7s all;
+}
+.SocialMedia-Link {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 8px;
+  text-align: center;
+}
+.SocialMedia-Link a {
+  font-size: 50px;
+}
+.Profile-Shortcuts {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  line-height: 80px;
+  height: 80px;
+  font-size: 42px;
+  background-color: rgba(0, 0, 0, .84);
+  margin: 3px 0;
+}
+.Profile-Shortcuts a {
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  width: 16.67%;
+  cursor: pointer;
+  color: #fff;
+}
+.Profile-Shortcuts i {
+  cursor: pointer;
+  color: #fff;
+}
+.Profile-Shortcuts a:hover {
+  background-color: rgba(255, 255, 255, .86);
+}
+.Profile-Shortcuts a:hover > i {
+  color: #000;
+}
+.Profile-Content {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.Sections-Titles {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content:center;
+  line-height: 80px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #fff;
+}
+.Sections-Titles a {
+  align-self: center;
+  text-align: center;
+  width: 25%;
+  border-radius: 5px;
+  font-size: 34px;
+  text-decoration: none;
+  color: #fff;
+}
+.Sections-Titles a:hover {
+  background-color: rgba(250, 250, 250, .6);
+  color: #222;
+}
+.Section-Content {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.ShareImage-browse {
+  opacity: 0;
+  z-index: 2;
+}
+.PostOptions {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+}
+.PostBackground-select {
+  width: 80px;
+}
+.PostFontColor-select {
+  width: 80px;
+}
+.PostFontSize-select {
+  width: 80px;
+}
+/* ------------------------ Profile - Papyrus --------------------- */
+.Papyrus {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  padding: 30px 0;
+}
+.Post {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  margin: 15px auto;
+  border-radius: 10px;
+}
+.Post-Header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 10px 20px;
+  border-radius: 10px 10px 0 0;
+}
+.Post-UserDate {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.Post-UserDate a {
+  text-decoration: none;
+  font-size: 26px;
+  margin-bottom: 5px;
+  font-family: serif;
+  color: #fff;
+}
+.Post-Setting {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+.SettingsMenu {
+  display: none;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  padding: 4px 10px;
+  margin-right: 10px;
+  border-radius: 10px 0 0 10px;
+}
+.SettingsMenu a {
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  margin: 0 5px;
+}
+.SettingsIcon i {
+  text-align: center;
+  font-size: 32px;
+  cursor: pointer;
+}
+.Post-Body {
+  padding: 10px 20px;
+}
+.Post-Body pre {
+  font-family: serif;
+  width: 100%;
+  overflow: hidden;
+}
+.GLS-Bar {
+  display: flex;
+  flex-flow: row nowrap;
+  line-height: 40px;
+  border-radius: 0 0 10px 10px;
+  background-color: rgba(10, 10, 10, .5);
+}
+.GoodPost-btn {
+  border-radius: 0 0 0 10px;
+}
+.StarPost-btn {
+  border-radius: 0 0 10px 0;
+}
+.GoodPost-btn,
+.AmazingPost-btn,
+.StarPost-btn {
+  font-size: 24px;
+  cursor: pointer;
+  width: 33.33%;
+  text-align: center;
+  line-height: 40px;
+}
+/* ------------------------- My Profile - Edit Post --------------------- */
+.EditPost {
+  background-color: #f3a89c;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  height: 35px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.PostOptions {
+  background-color: #f3a89c;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  height: 35px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+#EditPost-Form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+}
+.EditPost-txt {
+  padding: 6px;
+  border-radius: 8px;
+}
+.EditPost-btn {
+  align-self: stretch;
+  font-size: 20px;
+  height: 40px;
+  background-color: transparent;
+  color: lime;
+  border-radius: 8px;
+  border: 2px solid lime;
+  margin: 10px 0;
+  transition: .6s ease;
+}
+.EditPost-btn:hover {
+  color: #fff;
+  background-color: lime;
+}
+/* ------------------------- My Profile - Gallery --------------------- */
+.Gallery {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: rgba(0, 0, 0, .5);
+}
+.Image-in-Gallery {
+  width: 33.33%;
+  align-self: center;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.Image-in-Gallery img {
+  width: 98%;
+  height: 98%;
+}
+.Gallery-Modal {
+  display: none;
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, .96);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  overflow: auto;
+  z-index: 2;
+}
+.ImageReactions-Bar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  width: 370px;
+  background-color: rgba(90, 90, 90, .5);
+  height: 50px;
+  line-height: 50px;
+  border-radius: 6px;
+}
+.ImageReactions-Bar i {
+  font-size: 32px;
+  text-align: center;
+  cursor: pointer;
+  width: 25%;
+  text-align: center;
+}
+.ImageReactions-Bar i span {
+  font-size: 18px;
+  margin: 5px;
+  text-align: center;
+}
+.Control-Images {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.Prev {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  font-size: 42px;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  transition: 0.6s ease;
+  border-radius: 50%;
+}
+.Prev:hover {
+  background-color: rgba(250, 250, 250, 0.4);
+  cursor: pointer;
+}
+.Next {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  font-size: 42px;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  transition: 0.6s ease;
+  border-radius: 50%;
+}
+.Next:hover {
+  background-color: rgba(250, 250, 250, 0.4);
+  cursor: pointer;
+}
+.Main-Image {
+  align-self: center;
+  max-width: 1170px;
+}
+/* -------------------------- My Profile - Settings ------------------------- */
+.Settings-Content {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.Settings-Side {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  flex: 20%;
+  width: 20%;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  background-color: rgba(50, 50, 50, .9);
+}
+.Settings-Sections {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.Settings-Sections a {
+  align-self: stretch;
+  text-decoration: none;
+  outline: none;
+  font-size: 24px;
+  color: #cccccc;
+  padding: 20px;
+}
+.Settings-Sections a:hover {
+  color: rgb(50, 50, 50);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.Back-to-Profile {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.Back-to-Profile a {
+  text-decoration: none;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 20px;
+}
+.Back-to-Profile a:hover {
+  color: red;
+}
+.Setting-Details {
+  flex: 20%;
+  position: fixed;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+  background-color: rgba(250, 250, 250, 0.8);
+}
+.EditProfile-Details {
+
+}
+.EditProfile-Details ol {
+  list-style-type: none;
+}
+.EditProfile-Details ol li {
+  height: 50px;
+  line-height: 50px;
+}
+.EditProfile-Details ol a {
+  text-decoration: none;
+  color: #444;
+  font-size: 24px;
+}
+.EditProfile-Details ol a:hover {
+  color: lime;
+}
+.ChangeCover-Part {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+  border-bottom: 2px solid #333;
+}
+.ChangeCover-Part img {
+  width: 100%;
+  height: 350px;
+}
+#ChangeCover-Form {
+  margin: 20px auto;
+}
+.ChangeProfPic-Part {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+}
+.ChangeProfPic-Part img {
+  width: 500px;
+  height: 500px;
+}
+#ChangeProfPic-Form {
+  margin: 20px auto;
+}
+#EditProfInfos-Form {
+  margin: 20px auto;
+}
+#EditFullName-Form {
+  margin: 20px auto;
+  border-top: 2px solid #a8a8a8;
+}
+#EditFullName-Form h3 {
+  color: red;
+  font-family: serif;
+  text-align: center;
+  padding-top: 20px;
+}
+#ChangeEmail-Fome {
+  margin: 60px auto;
+}
+/* ----------------------------- Profiles ---------------------------- */
+.Profile-Contacts {
+  display: flex;
+  flex-flow: column nowrap;
+  position: fixed;
+  right: -40px;
+  top: 50%;
+  background-color: #fff;
+  padding: 5px 8px;
+  border-radius: 8px 0 0 8px;
+  transform: translateY(-50%);
+  transition: .6s all;
+}
+.Profile-Contacts:hover {
+  right: 0;
+}
+.Profile-Contacts i {
+  margin: 8px auto;
+  color: #c8c8c8;
+  cursor: pointer;
+  font-size: 26px;
+}
+/* ----------------------------- News ---------------------------- */
+.News-Content {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+.News-Sections {
+  position: fixed;
+  top: 70px;
+  width: 85%;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+}
+.News-Sections a {
+  width: 25%;
+  text-decoration: none;
+}
+#NewsSections-Content {
+ background-color: rgba(0, 0, 0, .5);
+}
+/* icons in News-Sections */
+.News-Menu {
+  text-align: center;
+  width: 100%;
+  line-height: 60px;
+  font-size: 34px;
+  color: #666;
+  transition: .3s all;
+  cursor: pointer;
+}
+.News-Menu:hover {
+  color: #fff;
+}
+/* .News-Sections a:first-child i {
+  color: #fff;
+} */
+.NewsPosts-Section {
+  margin-top: 60px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+}
+/* Note : NewsPosts other style in (Profile - Papyrus) section */
+.NewsImages-Section {
+  padding-top: 80px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+}
+.ImageSection-Container {
+  width: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-self: center;
+  border-radius: 10px;
+  margin: 20px auto;
+  background-color: rgba(10, 10, 10, .6);
+}
+.ImageSection-Header {
+  height: 60px;
+  line-height: 60px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background-color: rgba(10, 10, 10, .7);
+  padding: 0 20px;
+  margin-bottom: 20px;
+  border-radius: 10px 10px 0 0 ;
+}
+.ImageSection-Header a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-family: serif;
+}
+.ImageSection-Image {
+  align-self: center;
+  width: 820px;
+  height: 380px;
+}
+.ImageSection-Image img {
+  width: 820px;
+  height: 380px;
+}
+.ImageSection-Text {
+  align-self: center;
+  width: 820px;
+  padding: 4px 10px;
+}
+.ImageSection-Text pre {
+  font-size: 16px;
+  font-family: serif;
+}
+/* ---------------------------- Search ----------------------------*/
+.Search-Header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.Search-Filters {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  line-height: 70px;
+  height: 70px;
+}
+.Search-Filters a {
+  text-decoration: none;
+  text-align: center;
+  font-size: 22px;
+  width: 140px;
+  color: #fff;
+  transition: .3s all;
+}
+.Search-Filters a:first-child {
+  color: red;
+  width:220px;
+}
+.Search-Filters a:hover {
+  background-color: rgba(150, 150, 150, .7);
+}
+.Search_Result {
+  display: flex;
+  flex-flow: row wrap;
+  padding-top: 80px;
+  align-items: center;
+  align-content: center;
+}
+/* Users Filter */
+.Result-User {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 48%;
+  height: 110px;
+  margin: 5px auto;
+  padding: 12px;
+  background-color: rgba(100, 100, 100, .5);
+}
+.ResultUser-Image {
+  align-self: center;
+  width: 100px;
+  height: 100px;
+}
+.ResultUser-Image img {
+  width: 100px;
+  height: 100px;
+}
+.ResultUser-Name {
+  margin-left: 20px;
+}
+.ResultUser-Name a {
+  font-size: 24px;
+  color: #000;
+  text-decoration: none;
+}
+.ResultUser-Name p {
+  color: black;
+  font-size: 16px;
+}
+.Result-Posts {
+  width: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 5px auto;
+  padding: 12px 0;
+  background-color: rgba(100, 100, 100, .5);
+}
+.ResultPost-User {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 8px 15px;
+  background-color: rgba(50, 50, 50, .9);
+}
+.ResultPost-User a {
+  text-decoration: none;
+  font-size: 30px;
+  color: #fff;
+}
+.ResultPost-User a span {
+  color: #ddd;
+  font-size: 24px;
+}
+.ResultPost-User span {
+  font-size: 14px;
+  color: #ccc;
+}
+.ResultPost-Text {
+  padding: 0 15px;
+  font-size: 18px;
+  color: #111;
+}
+.ResultPost-Text pre {
+  font-size: 18px;
+  color: #000;
+  font-family: serif;
+}
+.Result-Image {
+  width: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: rgba(30, 30, 30, .4);
+  margin: 8px auto;
+  padding: 10px 0;
+}
+.ResultImage-User {
+  padding: 5px 20px;
+  background-color: rgba(50, 50, 50, .9);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 70px;
+  line-height: 70px;
+  align-items: center;
+  align-content: center;
+}
+.ResultImage-User a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 35px;
+}
+.ResultImage-User a span {
+  color: #ddd;
+  font-size: 20px;
+}
+.ResultImage-User span {
+  color: #ddd;
+}
+.ResultImage-Image {
+  align-self: center;
+  margin: 8px auto;
+}
+.ResultImage-Image img {
+  width: 100%;
+  height: 100%;
+}
+.ResultImage-Text {
+  align-items: center;
+  color: #fff;
+  background-color: rgba(50, 50, 50, .9);
+  font-size: 22px;
+  text-align: center;
+  font-family: serif;
+}
+/* ---------------------------- Footer --------------------------- */

@@ -1,0 +1,29 @@
+{% extends 'explore/news.html' %}
+
+{% block Title %}
+  Syrians | Explore - Images
+{% endblock %}
+
+{% block News_Section %}
+    <div class="NewsImages-Section">
+      {% for Image in Images %}
+        <div class="ImageSection-Container">
+          <div class="ImageSection-Header">
+            <a href="#">{{ Image.username.username }}</a>
+            <span>{{ Image.Image_Date }}</span>
+          </div>
+          <div class="ImageSection-Image">
+            <a href="../../media/{{ Image.Image }}" target="_blank"><img src="/../../media/{{ Image.Image }}"></a>
+          </div>
+          <div class="ImageSection-Text">
+            <pre> {{ Image.Image_Text }}</pre>
+          </div>
+          <div class="ImageSection-Footer GLS-Bar">
+            <i class="fas fa-thumbs-up GoodPost-btn" onclick="getGood(this)"></i>
+            <i class="fas fa-heart AmazingPost-btn" onclick="getLove(this)"></i>
+            <i class="fas fa-share StarPost-btn" onclick="getStar(this)"></i>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+{% endblock %}

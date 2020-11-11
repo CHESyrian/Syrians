@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1">
+    {% block Meta %}
+    {% endblock %}
+    <link rel="icon" href="{% static 'images/syrians_icon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free-5.13.0/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-classes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-responsive.css' %}">
+    <title> {% block Title %} {% endblock %} </title>
+  </head>
+  <body>
+    <div class="Settings-Content">
+      <div class="Settings-Side">
+        <div class="Settings-Sections">
+          <a href="{% url 'Edit_Profile' request.user %}">Edit Profile</a>
+          <a href="{% url 'Change_Email' request.user %}">Change Email</a>
+          <a href="{% url 'SendCode' request.user %}">Reset Password</a>
+          <a href="{% url 'Log_Out' request.user %}"> Log out </a>
+        </div>
+        <div class="Back-to-Profile">
+          <a href="{% url 'MyProfile' request.user %}"><i class="fas fa-arrow-circle-left"></i> Back To Profile</a>
+        </div>
+      </div>
+      <div class="Setting-Details">
+        {% block Settings_Details %}
+        {% endblock %}
+      </div>
+    </div>
+    <script src="{% static 'js/jquery-3.5.1.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/app.js' %}"  type="text/javascript"></script>
+  </body>
+</html>

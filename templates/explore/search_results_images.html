@@ -1,0 +1,22 @@
+{% extends 'explore/search_results.html' %}
+
+{% block Title %}
+  Syrians | Search - Images
+{% endblock %}
+
+{% block Search_Result_Filter %}
+  {% for image in images_filter %}
+    <div class="Result-Image">
+      <div class="ResultImage-User">
+        <a href="#">{{ image.username.first_name }} {{ image.username.last_name }} <span> @{{ image.username.username }}</span> </a>
+        <span>{{ image.Image_Date }}</span>
+      </div>
+      <div class="ResultImage-Image">
+        <img src="/../../media/{{ image.Image }}">
+      </div>
+      <div class="ResultImage-Text">
+        <pre>{{ image.Image_Text }}</pre>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

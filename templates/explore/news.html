@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Title %}
+  Syrians | Explore - News
+{% endblock %}
+
+{% block Content %}
+  <div class="News-Content">
+    <div class="News-Sections">
+      <a href="#" title="Articles"> <i class="fas fa-newspaper News-Menu"></i></a>
+      <a href="{% url 'News_Posts' %}" title="Papyrus"><i class="fas fa-book News-Menu" onclick="openNewsPosts()"></i></a>
+      <a href="{% url 'News_Images' %}" title="Images"><i class="fas fa-image News-Menu" onclick="openNewsImages()"></i></a>
+      <a class="FilesLink" title="Files"><i class="fas fa-archive News-Menu"></i></a>
+    </div>
+    <div id="NewsSections-Content">
+    {% block News_Section %}
+    {% endblock %}
+    </div>
+
+  </div>
+{% endblock %}

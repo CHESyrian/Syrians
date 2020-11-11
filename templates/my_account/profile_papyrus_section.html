@@ -1,0 +1,38 @@
+{% extends 'my_account/my_profile.html' %}
+{% load static %}
+
+{% block Title %}
+  Syrians | {{ request.user.username }} - Papyrus
+{% endblock %}
+
+{% block Section_Content %}
+    <div class="Papyrus">
+      {% for art in posts %}
+        <div class="Post">
+          <div class="Post-Header" style="background-color:{{art.BG_Color}};color:{{art.Font_Color}};">
+            <div class="Post-UserDate">
+              <a href="#" style="color:{{art.Font_Color}};">{{ art.username.username }}</a>
+              <span>{{ art.Post_Date }}</span>
+            </div>
+            <div class="Post-Setting">
+              <div class="SettingsMenu SettingMenu-Num{{art.id}}" style="background-color:{{art.Font_Color}};">
+                <a href="{% url 'Edit_Post' art.username.username art.id %}" style="color:{{art.BG_Color}};">Edit</a>
+                <a href="{% url 'Delete_Post' art.username.username art.id %}" style="color:{{art.BG_Color}};">Delete</a>
+              </div>
+              <div class="SettingsIcon">
+                <i class="fas fa-ellipsis-h" onclick="showSettingsMenu('{{art.id}}')"></i>
+              </div>
+            </div>
+          </div>
+          <div class="Post-Body" style="background-color:{{art.BG_Color}};color:{{art.Font_Color}};">
+            <pre style="font-size:{{art.Font_Size}}px">{{ art.Post }}</pre>
+          </div>
+          <div class="Post-Footer GLS-Bar" style="border: 2px solid {{art.BG_Color}};">
+            <i class="fas fa-thumbs-up GoodPost-btn" onclick="makeGood(this, '{{ art.id }}')"></i>
+            <i class="fas fa-heart AmazingPost-btn" onclick="makeAmazing(this, '{{ art.id }}')"></i>
+            <i class="fas fa-star StarPost-btn" onclick="getStar(this)"></i>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+{% endblock %}

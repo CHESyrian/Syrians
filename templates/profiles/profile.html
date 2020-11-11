@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Title %}
+  Syrians | Profile - {{ user_profile.User_Name }}
+{% endblock %}
+
+{% block Content %}
+      <div class="Profile">
+        <div class="Profile-Header">
+          <div class="Profile-Cover">
+            <a href="../media/{{ user_profile.Cover_Image }}" target="blank_"><img src="../../media/{{ user_profile.Cover_Image }}"></a>
+          </div>
+          <div class="Profile-Picture">
+            <a href="../media/{{ user_profile.Profile_Image }}" target="blank_"><img src="../../media/{{ user_profile.Profile_Image }}"></a>
+          </div>
+          <div class="Profile-Infos">
+            <h1> {{ user_profile.First_Name }} {{ user_profile.Last_Name }} </h1>
+            <h3> @{{ user_profile.User_Name }} </h3>
+            <h2 class="Bio">{{ user_profile.Bio }}</h2>
+          </div>
+          <div class="Profile-Contacts">
+            <i class="Friendship-btn fas fa-user-plus AddFriend-btn"></i>
+            <i class="Following-btn fas fa-rss Follow-btn"></i>
+            <i class="fas fa-comment"></i>
+            <i class="fas fa-star AddStar-btn"></i>
+          </div>
+          <div class="User-Links"> </div>
+        </div>
+        <div class="Profile-Content">
+          <div class="Sections-Titles">
+            <a class="ProfileNewspaper-Link"><i class="fas fa-newspaper"></i> Newspaper</a>
+            <a class="ProfilePapyrus-Link"><i class="fas fa-paper-plane"></i> Papyrus</a>
+            <a class="ProfileGallery-Link"><i class="fas fa-images"></i> Gallery</a>
+            <a class="ProfileLibrary-Link"><i class="fas fa-archive"></i> Library</a>
+          </div>
+          <div class="Section-Content">
+            <div class="Child-1st">
+
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

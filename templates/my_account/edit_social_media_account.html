@@ -1,0 +1,37 @@
+
+{% extends 'my_account/account_settings.html' %}
+
+{% block Title %}
+  Syrians | Settings - Remove Social Media Account
+{% endblock %}
+
+{% block Settings_Details %}
+  <div class="Edit-Other-Account Form-Container">
+    <form id="EditOtherAccount-Form" class="Form" action="" method="post">
+      {% csrf_token %}
+      <select class="AccountType-select Select-1" form="EditOtherAccount-Form">
+        <option value="Facebook">Facebook</option>
+        <option value="Twitter">Twitter</option>
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="Youtube">Youtube</option>
+        <option value="Instagram">Instagram</option>
+        <option value="Github">Github</option>
+        <option value="Kaggle">Kaggle</option>
+        <option value="Codepen">Codepen</option>
+      </select>
+      <label class="Label-1 Note">*Note: Enter new link if you want to add or edit account</label>
+      <div class="Fields">
+        <div class="Labels">
+          <label for="EditOtherAccount_input" class="Label-1 EditOtherAccount-label">New Link</label>
+        </div>
+        <div class="Inputs">
+          <input class="Text-1 EditOtherAccount-input" type="text" name="EditOtherAccount_input" value="">
+        </div>
+      </div>
+      <div class="Buttons">
+        <input class="EditOtherAccount-btn Save-Button" type="button" name="EditOtherAccount_btn Save-Button" value="Save">
+        <input class="RemoveOtherAccount-btn Delete-Button" type="button" name="RemoveOtherAccount_btn" value="Delete">
+      </div>
+    </form>
+  </div>
+{% endblock %}

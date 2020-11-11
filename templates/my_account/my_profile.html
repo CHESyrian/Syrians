@@ -1,0 +1,152 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Title %}
+  Syrians | Profile - {{ request.user.username }}
+{% endblock %}
+
+{% block Content %}
+      <div class="MyProfile">
+        <div class="Profile-Header">
+          <div class="Profile-Cover">
+            <img src="../../media/{{ user_profile.Cover_Image }}">
+            <a href="{% url 'Change_Profile_Pictures' request.user.username %}" class="EditCover-Link"><i class="fas fa-camera EditCover-Icon"></i></a>
+          </div>
+          <div class="Profile-Picture">
+            <img src="../../media/{{ user_profile.Profile_Image }}">
+            <a href="{% url 'Change_Profile_Pictures' request.user.username %}" class="EditProfPic-Link"><i class="fas fa-camera EditProfPic-Icon"></i></a>
+          </div>
+          <div class="Profile-Infos">
+            <h1> {{ user_profile.First_Name }} {{ user_profile.Last_Name }} </h1>
+            <h3> @{{ user_profile.User_Name }} </h3>
+            <h2 class="MyBio c-pointer">{{ user_profile.Bio }}</h2>
+          </div>
+          <div class="User-Links">
+            <div class="AddLink-icon">+</div>
+          </div>
+        </div>
+        <div class="Profile-Shortcuts">
+          <a class="SharePost-Link" title="write a post"><i class="fas fa-edit post-ico"></i></a>
+          <a class="ShareImage-Link" title="share an image"><i class="fas fa-image image-ico"></i></a>
+          <a href="{% url 'Messages' request.user %}" title="messages"><i class="fas fa-comment"></i></a>
+          <a href="{% url 'Notifications' request.user %}" title="notifications"><i class="fas fa-bell"></i></a>
+          <a href="{% url 'Edit_Profile' request.user %}" title="edit profile"><i class="fas fa-id-card edit-ico"></i></a>
+          <a href="{% url 'Account_Settings' request.user %}" title="settings"><i class="fas fa-cog settings-ico"></i></a>
+        </div>
+        <div class="Profie-Content">
+          <div class="Sections-Titles">
+            <a href="#"><i class="fas fa-newspaper"></i> Newspaper</a>
+            <a href="{% url 'Papyrus' request.user %}"><i class="fas fa-paper-plane"></i> Papyrus</a>
+            <a href="{% url 'Gallery' request.user %}"><i class="fas fa-images"></i> Gallery</a>
+            <a href="#"><i class="fas fa-archive"></i> Library</a>
+          </div>
+          <div class="Section-Content">
+            {% block Section_Content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+      <div class="SharePost-Modal Modal">
+        <div class="SharePost-Card Card">
+          <span class="Close Close-SharePostModal" onclick="closePostShare()">&times;</span>
+          <div class="PostOptions">
+            <div class="Post-Background">
+              <label class="PostBackground-lbl Label-1">Background Color : </label>
+              <select class="PostBackground-select Select-1" name="PostBackground" form="SharePost-Form">
+                <option value="rgba(10,10,10,.5)">default</option>
+                <option value="black">Black</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="cyan">Cyan</option>
+                <option value="yellow">Yellow</option>
+                <option value="lime">Lime</option>
+                <option value="gold">Gold</option>
+                <option value="silver">Silver</option>
+                <option value="black">Black</option>
+              </select>
+            </div>
+            <div class="PostFontColor">
+              <label class="PostFontColor-lbl Label-1">Font Color : </label>
+              <select class="PostFontColor-select Select-1" name="PostFontColor" form="SharePost-Form">
+                <option value="white">default</option>
+                <option value="gold">Gold</option>
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="pink">Pink</option>
+                <option value="black">Black</option>
+                <option value="green">Green</option>
+                <option value="silver">Silver</option>
+                <option value="lime">Lime</option>
+              </select>
+            </div>
+            <div class="PostFontSize">
+              <label class="PostFontSize-lbl Label-1">Fonr Size : </label>
+              <select class="PostFontSize-select Select-1" name="PostFontSize" form="SharePost-Form">
+                <option value="18">default</option>
+                <option value="24">24</option>
+                <option value="28">28</option>
+                <option value="32">32</option>
+                <option value="36">36</option>
+                <option value="42">42</option>
+                <option value="46">46</option>
+                <option value="50">50</option>
+                <option value="54">54</option>
+                <option value="64">64</option>
+                <option value="72">72</option>
+              </select>
+            </div>
+          </div>
+          <form id="SharePost-Form" class="Form" method="post" action="{% url 'Sharing_Post' request.user %}">
+            {% csrf_token %}
+            <textarea class="SharePost-txt Text-1" name="SharePost_txt" rows="8" cols="80"></textarea>
+            <input class="SharePost-btn Save-Button" type="submit" value="Share">
+          </form>
+        </div>
+      </div>
+      <div class="ShareImage-Modal Modal">
+        <div class="ShareImage-Card Card">
+          <span class="Close Close-ShareImageModal" onclick="closeImageShare()">&times;</span>
+          <label class="SelectFile-Fake Label-1">Select Image</label>
+          <form id="ShareImage-Form" class="Form" method="post" action="{% url 'Sharing_Image' request.user %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input class="ShareImage-browse Label-1" type="file" name="ShareImage_browse" value="">
+            <textarea class="ShareImage-txt Text-1" name="ShareImage_txt" rows="4" cols="40"></textarea>
+            <input class="ShareImage-btn Save-Button" type="submit" value="Share">
+          </form>
+        </div>
+      </div>
+      <div class="ShareBio-Modal Modal">
+        <div class="ShareBio-Card Card">
+          <span class="Close Close-BioModal">&times;</span>
+          <form id="ShareBio-Form" class="Form" method="post" action="{%url 'Changing_Bio' request.user %}">
+            {% csrf_token %}
+            <textarea class="ShareBio-txt Text" name="ShareBio_txt" rows="3" cols="50" placeholder="120 characters maximum..."></textarea>
+            <input class="ShareBio-btn Save-Button" type="submit" value="Save">
+          </form>
+        </div>
+      </div>
+      <div class="AddLink-Modal Modal">
+        <div class="AddLink-Card Card">
+          <span class="Close Close-AdLinkModal">&times;</span>
+          <select class="LinkType-select Select-1" name="LinkType_select" form="AddLink-Form">
+            <option value="Facebook">Facebook</option>
+            <option value="Twitter">Twitter</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Youtube">Youtube</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Github">Github</option>
+            <option value="Kaggle">Kaggle</option>
+            <option value="Codepen">Codepen</option>
+          </select>
+          <form id="AddLink-Form" class="Form" action="" method="post">
+            {% csrf_token %}
+            <div class=Fields>
+              <label class="AddLink-label Label-1" for="AddLink_input">https://</label>
+              <input class="AddLink-input Text-1" type="text" name="AddLink_input" value="">
+            </div>
+            <input class="AddLink-btn Save-Button" type="button" name="AddLink_btn" value="Add">
+          </form>
+        </div>
+      </div>
+{% endblock %}
