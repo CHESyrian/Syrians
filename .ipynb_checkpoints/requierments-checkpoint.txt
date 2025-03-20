@@ -1,4 +1,0 @@
-django=3.0.3
-asgirf=3.2.7
-pillow=7.1.1
-sqlparse=0.3.1
